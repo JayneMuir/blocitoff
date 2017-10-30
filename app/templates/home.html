@@ -1,1 +1,38 @@
-<h1>Home Page</h1>
+<section class="tasks-list-content" ng-controller="HomeCtrl">
+    <header id="header"></header>
+        <h1 class="tasks-list-title">{{ home.taskListTitle }}</h1>
+    </header>
+
+     <section id="main" class="tasks-view container narrow">
+         <!-- Add a new task -->
+         
+         <form ng-submit="addTask()">
+             <span>New Task:</span>
+             <input ng-model="newTaskDescription" />
+             <button type="submit">Add</button>
+         </form>
+<!--         <span>{{newTaskDescription}}</span>-->
+        <table class="tasks-view-task-list">
+            <thead>
+                <tr>
+                    <th class="task-number">Id</th>
+                    <th class="task-description">Description</th>
+                    <th class="task-date">Inserted Date</th>
+                    <th class="task-delete">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr class="tasks-view-task" ng-repeat="task in tasks">
+                    <td>{{$index+1}}</td>
+                    <td>{{task.Description}}</td>
+                    <td>{{task.InsertedDate}}</td>
+                    <td>
+                         <input ng-click="removeTask(task)" type="button" value="Delete" class="delete">
+                     </td>
+                 </tr>
+            </tbody>
+         </table>
+    </section>
+</section>
+
+
