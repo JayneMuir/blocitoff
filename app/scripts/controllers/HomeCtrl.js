@@ -1,28 +1,43 @@
 (function() {
-    function HomeCtrl($scope, $firebaseArray) 
+    function HomeCtrl($scope, $firebaseArray)
     {
         this.taskListTitle = "To Do List";
-        
+
         var ref = blocitoffDB.database().ref();
 
         var tasks = $firebaseArray(ref);
-        
+
+        // console log the array of tasks when loaded
+        tasks.$loaded(function(data){
+          $scope.tasks = tasks;
+          console.log($scope.tasks);
+
+          // check for InsertedDate - see if that value is greater than 60000 (a minute, in ms)
+          // and then set its expired property to true
+        })
+
         // make the tasks available in the DOM
-        $scope.tasks = tasks;
-        
+        // $scope.tasks = tasks;
+
         // add a task
         $scope.addTask = function () {
             var todaysDateTime = new Date();
-            var newTask = {};
-            newTask.Description = $scope.newTaskDescription;
-            newTask.InsertedDate = todaysDateTime.toDateString();
-            newTask.Active = 1;
-            newTask.Completed = 0;
+            var newTask = {
+              Description: $scope.newTaskDescription,
+              DateString: todaysDateTime.toDateString(),
+              InsertedDate: todaysDateTime.getTime(),
+              Expired: false,
+              Active: true,
+              Completed: false
+            };
+
             tasks.$add(newTask).then(function(ref) {
-                console.log("added record with description " + newTask.Description);
+                console.log("added record with description " + newTask.InsertedDate);
             });
+
+            $scope.newTaskDescription = "";
         };
-        
+
         // remove task
 	   $scope.removeTask = function (task) {
             tasks.$remove(task).then(function(ref) {

@@ -5,7 +5,7 @@
 
      <section id="main" class="tasks-view container narrow">
          <!-- Add a new task -->
-         
+
          <form ng-submit="addTask()">
              <span>New Task:</span>
              <input ng-model="newTaskDescription" />
@@ -25,7 +25,7 @@
                  <tr class="tasks-view-task" ng-repeat="task in tasks">
                     <td>{{$index+1}}</td>
                     <td>{{task.Description}}</td>
-                    <td>{{task.InsertedDate}}</td>
+                    <td>{{task.DateString}}</td>
                     <td>
                          <input ng-click="removeTask(task)" type="button" value="Delete" class="delete">
                      </td>
@@ -34,5 +34,3 @@
          </table>
     </section>
 </section>
-
-
