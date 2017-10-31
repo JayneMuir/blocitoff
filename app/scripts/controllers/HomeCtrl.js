@@ -16,6 +16,8 @@
             var newTask = {};
             newTask.Description = $scope.newTaskDescription;
             newTask.InsertedDate = todaysDateTime.toDateString();
+            newTask.Active = 1;
+            newTask.Completed = 0;
             tasks.$add(newTask).then(function(ref) {
                 console.log("added record with description " + newTask.Description);
             });
