@@ -1,7 +1,7 @@
 (function() {
     function HomeCtrl($scope, $firebaseArray)
     {
-        this.taskListTitle = "To Do List";
+        this.taskListTitle = "Current Tasks";
 
         var ref = blocitoffDB.database().ref();
 
@@ -9,30 +9,39 @@
 
         // console log the array of tasks when loaded
         tasks.$loaded(function(data){
-          $scope.tasks = tasks;
-          console.log($scope.tasks);
+            $scope.tasks = tasks;
+            console.log($scope.tasks);
 
-          // check for InsertedDate - see if that value is greater than 60000 (a minute, in ms)
-          // and then set its expired property to true
+            // check for InsertedDate - see if that value is greater than 7 days in ms
+            // and then set its expired property to true
+            // timestamp for today's date
+            var todaysDateTime = new Date().getTime();
+            // 7 days in ms
+            var sevenDays = 604800000;
+            tasks.forEach (function(task) {
+               if (task.insertedDate < (todaysDateTime - sevenDays) ) {
+                   task.expired = true;
+                   task.active = false;
+               }
+            });
+			
         })
-
-        // make the tasks available in the DOM
-        // $scope.tasks = tasks;
 
         // add a task
         $scope.addTask = function () {
             var todaysDateTime = new Date();
             var newTask = {
-              Description: $scope.newTaskDescription,
-              DateString: todaysDateTime.toDateString(),
-              InsertedDate: todaysDateTime.getTime(),
-              Expired: false,
-              Active: true,
-              Completed: false
+              description: $scope.newTaskDescription,
+              dateString: todaysDateTime.toDateString(),
+              insertedDate: todaysDateTime.getTime(),
+              expired: false,
+              active: true,
+              completed: false,
+              priority: $scope.newTaskPriority
             };
 
             tasks.$add(newTask).then(function(ref) {
-                console.log("added record with description " + newTask.InsertedDate);
+                console.log("added record with insertedDate " + newTask.insertedDate);
             });
 
             $scope.newTaskDescription = "";
@@ -41,8 +50,18 @@
         // remove task
 	   $scope.removeTask = function (task) {
             tasks.$remove(task).then(function(ref) {
-                console.log("removed record with description " + task.Description);
+                console.log("removed record with description " + task.description);
             });
+        };
+        
+        // toggle complete task
+	   $scope.toggleComplete = function (completed) {
+           if (completed == true){
+            task.completed = true;
+           }
+           else {
+               task.completed = false;
+           }
         };
     }
     angular

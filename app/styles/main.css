@@ -41,10 +41,6 @@ button {
       text-overflow: ellipsis;
 }
 
-.task-number{
-    width: 15%;
-}
-
 .task-description {
     width: 40%;
 }
@@ -73,6 +69,26 @@ td {
 .tasks-view-task-list tr{
     background: cornsilk;
     color: saddlebrown;
+}
+.tasks-view-completed {
+    text-decoration: line-through;   
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  color: saddlebrown;
+    opacity: .7;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: saddlebrown;
+    opacity: .7;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: saddlebrown;
+  opacity: .7;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: saddlebrown;
+  opacity: .7;
 }
 
 

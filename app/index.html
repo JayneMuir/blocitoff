@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="/styles/main.css">
 	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
 </head>
-<body>
+<body id="container">
+    <nav  class="navbar">
+        <div class="links-container">
+            <a ui-sref='home' class="navbar-link">Home</a>
+            <a ui-sref='completed' class="navbar-link">Task Archive</a>
+        </div>
+    </nav>
+    
      <ui-view></ui-view>
 
      <!-- Angular -->
@@ -34,10 +41,12 @@
       };
       var blocitoffDB = firebase.initializeApp(config);
     </script>
+	
 
-    
+
      <!-- Application Files -->
      <script src="/scripts/app.js"></script>
     <script src="/scripts/controllers/HomeCtrl.js"></script>
+    <script src="/scripts/controllers/CompletedCtrl.js"></script>
 </body>
 </html>

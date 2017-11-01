@@ -8,14 +8,16 @@
 
          <form ng-submit="addTask()">
              <span>New Task:</span>
-             <input ng-model="newTaskDescription" />
+             <input type="text" placeholder="Enter task description"ng-model="newTaskDescription" />
+            <span>Priority:</span>
+             <input type="text" placeholder="high, med, low" ng-model="newTaskPriority" />
              <button type="submit">Add</button>
          </form>
 <!--         <span>{{newTaskDescription}}</span>-->
         <table class="tasks-view-task-list">
             <thead>
                 <tr>
-                    <th class="task-number">Id</th>
+                    <th class="task-completed">Done</th>
                     <th class="task-description">Description</th>
                     <th class="task-date">Inserted Date</th>
                     <th class="task-delete">Delete</th>
@@ -23,10 +25,12 @@
             </thead>
             <tbody>
                  <tr class="tasks-view-task" ng-repeat="task in tasks">
-                    <td>{{$index+1}}</td>
-                    <td>{{task.Description}}</td>
-                    <td>{{task.DateString}}</td>
-                    <td>
+                    <td ng-if="task.active == true">
+                        <input ng-model="task.completed" ng-change="toggleCompleted(task.completed)" ng-true-value="true" ng-false-value="false" class="completed">
+                    </td> 
+                    <td ng-if="task.active == true">{{task.description}}</td>
+                    <td ng-if="task.active == true">{{task.dateString}}</td>
+                    <td ng-if="task.active == true">
                          <input ng-click="removeTask(task)" type="button" value="Delete" class="delete">
                      </td>
                  </tr>

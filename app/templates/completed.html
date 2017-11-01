@@ -1,0 +1,24 @@
+<section class="tasks-list-content" ng-controller="CompletedCtrl">
+    <header id="header"></header>
+        <h1 class="tasks-list-title">{{ completed.taskListTitle }}</h1>
+    </header>
+
+     <section id="main" class="tasks-view container narrow">
+         <!-- Add a new task -->
+
+        <table class="tasks-view-task-list">
+            <thead>
+                <tr>
+                    <th class="task-description">Description</th>
+                    <th class="task-date">Inserted Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr class="tasks-view-completed" ng-repeat="task in tasks">
+                    <td ng-if="task.completed == true">{{task.description}}</td>
+                    <td ng-if="task.completed == true">{{task.dateString}}</td>
+                 </tr>
+            </tbody>
+         </table>
+    </section>
+</section>
