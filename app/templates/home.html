@@ -24,15 +24,15 @@
                 </tr>
             </thead>
             <tbody>
-                 <tr class="tasks-view-task" ng-repeat="task in tasks">
-                    <td ng-if="task.active == true">
-                        <input ng-model="task.completed" ng-change="toggleCompleted(task.completed)" ng-true-value="true" ng-false-value="false" class="completed">
-                    </td> 
-                    <td ng-if="task.active == true">{{task.description}}</td>
-                    <td ng-if="task.active == true">{{task.dateString}}</td>
-                    <td ng-if="task.active == true">
+                 <tr class="tasks-view-task" ng-repeat="task in tasks" ng-if="task.active">
+                    <td>
+                        <input type="checkbox" ng-model="task.completed" ng-change="toggleComplete(task)" ng-true-value="true" ng-false-value="false" class="completed">
+                    </td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.dateString}}</td>
+                    <td>
                          <input ng-click="removeTask(task)" type="button" value="Delete" class="delete">
-                     </td>
+                    </td>
                  </tr>
             </tbody>
          </table>

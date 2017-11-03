@@ -24,7 +24,7 @@
                    task.active = false;
                }
             });
-			
+
         })
 
         // add a task
@@ -53,14 +53,12 @@
                 console.log("removed record with description " + task.description);
             });
         };
-        
+
         // toggle complete task
-	   $scope.toggleComplete = function (completed) {
-           if (completed == true){
-            task.completed = true;
-           }
-           else {
-               task.completed = false;
+	   $scope.toggleComplete = function (task) {
+           if (task.completed){
+             task.active = false;
+            tasks.$save(task);
            }
         };
     }
