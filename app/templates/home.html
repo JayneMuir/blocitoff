@@ -1,11 +1,10 @@
-<section class="tasks-list-content" ng-controller="HomeCtrl">
+<section class="tasks-list-content container clearfix" ng-controller="HomeCtrl">
     <header id="header"></header>
         <h1 class="tasks-list-title">{{ home.taskListTitle }}</h1>
     </header>
 
      <section id="main" class="tasks-view container narrow">
          <!-- Add a new task -->
-
          <form ng-submit="addTask()">
              <span>New Task:</span>
              <input type="text" placeholder="Enter task description"ng-model="newTaskDescription" />

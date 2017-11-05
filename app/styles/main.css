@@ -10,24 +10,81 @@ html {
 }
 
 body {
-    background-image: url("/assets/ricepaper.png");
+/*    background-image: url("/assets/ricepaper.png");*/
+/* background-color:#E3F7D4;*/
+    background-color: burlywood;
+
     font-family: 'Open Sans'; /* sets our font to the "Open Sans" typeface */
-    color: saddlebrown;             /* sets the text color to black */
+    color: #091534;             /* sets the text color to black */
     min-height: 100%;         /* says the height of the body must be, at minimum, 100% of the window */
     padding-bottom: 200px;
 }
 
 h1 {
-    color: saddlebrown;
+    color: #091534;
 }
 input {
-    background: cornsilk;
-    color: saddlebrown;
+    background: #E3F7D4;
+    color: #091534;
 }
 button {
-    background: saddlebrown;
-    color: cornsilk;
+    background: #091534;
+    color: #E3F7D4;
 }
+
+.navbar {
+    position: relative;
+    padding: 0.5rem;
+     background-color: #668032;
+     z-index: 1;
+}
+
+.navbar .logo {
+    position: relative; /* positioning*/
+    left: 2rem;
+    cursor: pointer;  /* produces the finger-pointer icon when you hover over the logo */
+}
+
+.navbar .links-container {
+    display: table;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100px;
+    color: #091534;
+}
+
+.links-container .navbar-link {
+    display: table-cell;
+    position: relative;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+    vertical-align: middle;
+    color: #091534;
+    font-size: 0.625rem;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    
+    text-decoration: none;
+    cursor: pointer;
+}
+
+  
+.links-container .navbar-link:hover {
+    color: #0247FE;
+}
+
+.container {
+     margin: 0 auto;
+     max-width: 64rem;
+ }
+
+ .container.narrow {
+      max-width: 56rem;
+  }
 
 .tasks-view-task-list {
   table-layout: fixed;
@@ -53,12 +110,12 @@ button {
 
 
 .tasks-view-task-list th {
-    background: saddlebrown;
-    color: cornsilk;
+    background: #66B032;
+    color: #0247FE;
 }
 
 td {
-    color: saddlebrown;
+    color: #091534;
 }
 
 .tasks-view-task-list td,
@@ -67,27 +124,27 @@ td {
     padding: 5px 10px;
 }
 .tasks-view-task-list tr{
-    background: cornsilk;
-    color: saddlebrown;
+    background: #E3F7D4;
+    color: #091534;
 }
 .tasks-view-completed {
     text-decoration: line-through;   
 }
 
 ::-webkit-input-placeholder { /* Chrome */
-  color: saddlebrown;
+  color: #091534;
     opacity: .7;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: saddlebrown;
+  color: #091534;
     opacity: .7;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: saddlebrown;
+  color: #091534;
   opacity: .7;
 }
 :-moz-placeholder { /* Firefox 4 - 18 */
-  color: saddlebrown;
+  color: #091534;
   opacity: .7;
 }
 
