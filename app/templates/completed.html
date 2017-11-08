@@ -10,13 +10,17 @@
             <thead>
                 <tr>
                     <th class="task-description">Description</th>
-                    <th class="task-date">Inserted Date</th>
+                    <th class="task-date">Priority</th>
+                    <th class="task-delete">Delete</th>
                 </tr>
             </thead>
             <tbody>
-                 <tr class="tasks-view-completed" ng-repeat="task in tasks">
+                 <tr class="tasks-view-completed" ng-repeat="task in tasks | orderBy:'priority'">
                     <td ng-if="task.completed == true">{{task.description}}</td>
-                    <td ng-if="task.completed == true">{{task.dateString}}</td>
+                    <td ng-if="task.completed == true">{{task.priority}}</td>
+                    <td ng-if="task.completed == true">
+                         <input ng-click="removeTask(task)" type="button" value="Delete" class="delete">
+                    </td>
                  </tr>
             </tbody>
          </table>

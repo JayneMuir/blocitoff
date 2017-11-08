@@ -18,17 +18,17 @@
                 <tr>
                     <th class="task-completed">Done</th>
                     <th class="task-description">Description</th>
-                    <th class="task-date">Inserted Date</th>
+                    <th class="task-date">Priority</th>
                     <th class="task-delete">Delete</th>
                 </tr>
             </thead>
             <tbody>
-                 <tr class="tasks-view-task" ng-repeat="task in tasks" ng-if="task.active">
+                 <tr class="tasks-view-task" ng-repeat="task in tasks | orderBy:'priority'" ng-if="task.active">
                     <td>
                         <input type="checkbox" ng-model="task.completed" ng-change="toggleComplete(task)" ng-true-value="true" ng-false-value="false" class="completed">
                     </td>
                     <td>{{task.description}}</td>
-                    <td>{{task.dateString}}</td>
+                    <td>{{task.priority}}</td>
                     <td>
                          <input ng-click="removeTask(task)" type="button" value="Delete" class="delete">
                     </td>
