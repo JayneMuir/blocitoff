@@ -1,0 +1,152 @@
+$primary: #091534;
+$secondary: #E3F7D4;
+
+*, *::before, *::after {
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+ }
+
+html {
+    height: 100%; /* makes sure our HTML takes up 100% of the browser window */
+    font-size: 100%;
+}
+
+body {
+/*    background-image: url("/assets/ricepaper.png");*/
+/* background-color:$secondary;*/
+    background-color: burlywood;
+
+    font-family: 'Open Sans'; /* sets our font to the "Open Sans" typeface */
+    color: $primary;             /* sets the text color to black */
+    min-height: 100%;         /* says the height of the body must be, at minimum, 100% of the window */
+    padding-bottom: 200px;
+}
+
+h1 {
+    color: $primary;
+}
+input {
+    background: $secondary;
+    color: $primary;
+}
+button {
+    background: $primary;
+    color: $secondary;
+}
+
+.navbar {
+    position: relative;
+    padding: 0.5rem;
+    background-color: #668032;
+    z-index: 1;
+
+    .logo {
+      position: relative; /* positioning*/
+      left: 2rem;
+      cursor: pointer;  /* produces the finger-pointer icon when you hover over the logo */
+    }
+
+    .links-container {
+      display: table;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100px;
+      color: $primary;
+
+      .navbar-link {
+          display: table-cell;
+          position: relative;
+          height: 100%;
+          padding-left: 1rem;
+          padding-right: 1rem;
+
+          vertical-align: middle;
+          color: $primary;
+          font-size: 0.625rem;
+          letter-spacing: 0.05rem;
+          font-weight: 700;
+          text-transform: uppercase;
+
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            color: #0247FE;
+          }
+      }
+  }
+}
+
+
+.container {
+     margin: 0 auto;
+     max-width: 64rem;
+ }
+
+ .container.narrow {
+   max-width: 56rem;
+  }
+
+.tasks-view-task-list {
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.tasks-view-task-list td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+}
+
+.task-description {
+    width: 40%;
+}
+.task-date {
+    width: 40%;
+}
+.task-delete {
+    width: 10%;
+}
+
+
+.tasks-view-task-list th {
+    background: #66B032;
+    color: #0247FE;
+}
+
+td {
+    color: $primary;
+}
+
+.tasks-view-task-list td,
+.tasks-view-task-list th {
+    text-align: left;
+    padding: 5px 10px;
+}
+.tasks-view-task-list tr{
+    background: $secondary;
+    color: $primary;
+}
+.tasks-view-completed {
+    text-decoration: line-through;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  color: $primary;
+    opacity: .7;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $primary;
+    opacity: .7;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $primary;
+  opacity: .7;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: $primary;
+  opacity: .7;
+}
